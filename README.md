@@ -1,0 +1,2 @@
+# serverstatus_client.sh
+install_and_configure_stat_client.sh
