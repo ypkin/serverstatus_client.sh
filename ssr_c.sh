@@ -1,8 +1,8 @@
 #!/bin/bash
 set -e
 
-# 固定的服务地址
-server_address="https://status.67890.de/report"
+# 提示用户输入服务器地址
+read -p "请输入服务地址（例如：https://status.67890.de/report）: " server_address
 
 # 提示用户输入用户名和密码
 read -p "请输入用户名（例如：h2）: " user_name
@@ -16,7 +16,7 @@ WORKSPACE="/opt/ServerStatus"
 mkdir -p ${WORKSPACE}
 cd ${WORKSPACE}
 
-# 设置架构，默认为 x86_64。如果是 ARM，请修改为 "armv7" 或 "aarch64"
+# 配置架构，默认为 x86_64。如果是 ARM，请修改为 "armv7" 或 "aarch64"
 OS_ARCH="x86_64"
 
 # 获取最新版本号
@@ -53,7 +53,7 @@ systemctl daemon-reload
 # 启动服务
 systemctl start stat_client
 
-# 设置开机自启
+# 设置开机自启动
 systemctl enable stat_client
 
 # 显示服务状态
